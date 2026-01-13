@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Presupuesto del Proyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+        
+        .slide-container {
+            width: 1240px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header-section {
+            padding: 50px 60px 30px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-line {
+            width: 80px;
+            height: 6px;
+            background-color: #3b82f6;
+            /* Blue 500 */
+            margin-bottom: 20px;
+            border-radius: 3px;
+        }
+
+        /* Main Content Layout */
+        .content-wrapper {
+            flex: 1;
+            padding: 0 60px 60px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 10;
+        }
+
+        /* Metrics Grid (Top Row) */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .metric-card {
+            background-color: #f8fafc;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 6px solid #e2e8f0;
+            /* Default border */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+            background-color: white;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .metric-icon-circle {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background-color: #eff6ff;
+            color: #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+            border: 1px solid #dbeafe;
+        }
+
+        /* Total Section (Bottom Row) */
+        .total-container {
+            background-color: #1e3a8a;
+            /* Corporate Dark Blue */
+            border-radius: 24px;
+            padding: 40px 50px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(30, 58, 138, 0.3);
+        }
+
+        /* Decorative Backgrounds */
+        .bg-pattern-dots {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            opacity: 0.1;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+
+        .total-bg-accent {
+            position: absolute;
+            left: -50px;
+            bottom: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: #ffffff;
+            opacity: 0.05;
+            border-radius: 50%;
+        }
+
+        .total-bg-accent-2 {
+            position: absolute;
+            right: -30px;
+            top: -30px;
+            width: 200px;
+            height: 200px;
+            border: 30px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        /* Typography */
+        .metric-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #1e293b;
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 5px;
+        }
+
+        .metric-label {
+            font-size: 1rem;
+            color: #64748b;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .total-label {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: #bfdbfe;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .total-value {
+            font-size: 4.5rem;
+            font-weight: 900;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1;
+            letter-spacing: -0.02em;
+        }
+
+        /* Footer */
+        .page-number {
+            position: absolute;
+            bottom: 10px;
+            right: 50px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 3rem;
+            color: #e2e8f0;
+        }
+
+        .sidebar-accent {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 15px;
+            height: 100%;
+            background-color: #f1f5f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Background Elements -->
+        <div class="bg-pattern-dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div class="sidebar-accent"></div>
+        <!-- Header -->
+        <div class="header-section">
+            <div class="header-line"></div>
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">Presupuesto del Proyecto</h1>
+            <p class="text-gray-500 text-lg max-w-3xl">
+                Estimación económica detallada basada en el esfuerzo técnico requerido, la complejidad de la migración y
+                los recursos asignados.
+            </p>
+        </div>
+        <!-- Content -->
+        <div class="content-wrapper">
+            <!-- Top Row: Metrics -->
+            <div class="metrics-grid">
+                <!-- Card 1 -->
+                <div class="metric-card" style="border-top-color: #3b82f6;">
+                    <div class="metric-icon-circle">
+                        <i class="fas fa-hand-holding-dollar"></i>
+                    </div>
+                    <div>
+                        <p class="metric-value">$17.00</p>
+                        <p class="metric-label">Costo por Hora (USD)</p>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="metric-card" style="border-top-color: #10b981;">
+                    <div class="metric-icon-circle text-green-500 bg-green-50 border-green-200">
+                        <i class="fas fa-hourglass-half"></i>
+                    </div>
+                    <div>
+                        <p class="metric-value">6.0</p>
+                        <p class="metric-label">Horas por Día</p>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="metric-card" style="border-top-color: #f59e0b;">
+                    <div class="metric-icon-circle text-amber-500 bg-amber-50 border-amber-200">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div>
+                        <p class="metric-value">5.5</p>
+                        <p class="metric-label">Días por Semana</p>
+                    </div>
+                </div>
+                 <!-- Card 4 -->
+                <div class="metric-card" style="border-top-color: #636b69;">
+                    <div class="metric-icon-circle text-amber-500 bg-amber-50 border-amber-200">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div>
+                        <p class="metric-value">7.0</p>
+                        <p class="metric-label">Meses estimados</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Row: Grand Total -->
+            <div class="total-container">
+                <div class="total-bg-accent"></div>
+                <div class="total-bg-accent-2"></div>
+                <div class="relative z-10">
+                    <p class="total-label"><i class="fas fa-file-invoice-dollar mr-2"></i>Coste Total Proyecto
+                        Migratorio</p>
+                    <p class="text-blue-200 text-sm mt-2 opacity-80 max-w-lg">
+                        Incluye migración completa de 3 sistemas (Batch SGC, Batch ISGL, Web ISGL), refactorización, pruebas y
+                        documentación y la migración hibrida del smf mobile.
+                    </p>
+                </div>
+                <div class="relative z-10 text-right">
+                    <p class="total-value">$60,463.92</p>
+                    <p class="text-xl font-medium text-blue-300 mt-2">USD</p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Info -->
+        <div class="page-number">12</div>
+    </div>
+</body>
+
+</html>

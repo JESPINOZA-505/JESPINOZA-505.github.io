@@ -20,7 +20,7 @@
         }
 
         .slide-container {
-             width: 1240px;
+            width: 1240px;
             height: 700px;
             position: relative;
             overflow: hidden;
@@ -66,7 +66,7 @@
         /* Metrics Grid (Top Row) */
         .metrics-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 30px;
             margin-bottom: 40px;
         }
@@ -198,10 +198,10 @@
         /* Footer */
         .page-number {
             position: absolute;
-            bottom: 30px;
+            bottom: 10px;
             right: 50px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
+            font-weight: 600;
             font-size: 3rem;
             color: #e2e8f0;
         }
@@ -282,7 +282,18 @@
                         <p class="metric-label">Días por Semana</p>
                     </div>
                 </div>
+                <!-- Card 4 -->
+                <div class="metric-card" style="border-top-color: #636b69;">
+                    <div class="metric-icon-circle text-amber-500 bg-amber-50 border-amber-200">
+                        <i class="fas fa-calendar-day"></i>
+                    </div>
+                    <div>
+                        <p class="metric-value">9.0</p>
+                        <p class="metric-label">Meses estimados</p>
+                    </div>
+                </div>
             </div>
+
             <!-- Bottom Row: Grand Total -->
             <div class="total-container">
                 <div class="total-bg-accent"></div>
@@ -291,7 +302,7 @@
                     <p class="total-label"><i class="fas fa-file-invoice-dollar mr-2"></i>Coste Total Proyecto
                         Migratorio</p>
                     <p class="text-blue-200 text-sm mt-2 opacity-80 max-w-lg">
-                        Incluye migración completa de 4 sistemas (Batch, Web, Mobile), refactorización, pruebas y
+                        Incluye migración completa de 4 sistemas (Batch SGC, Batch ISGL, Web, Mobile), refactorización, pruebas y
                         documentación.
                     </p>
                 </div>
