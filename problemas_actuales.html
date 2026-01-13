@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Problemas Actuales</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&amp;family=Roboto:wght@300;400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+             width: 1240px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 15px;
+            background-color: #1e3a8a;
+            /* Corporate Dark Blue */
+        }
+
+        .accent-corner {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background-color: #f1f5f9;
+            clip-path: polygon(100% 0, 100% 100%, 0 0);
+            z-index: 0;
+        }
+
+        .list-item-container {
+            transition: all 0.3s ease;
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background-color: #eff6ff;
+            color: #3b82f6;
+            margin-right: 20px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            background-color: #fff;
+            z-index: 10;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Top accent -->
+        <div class="header-bg"></div>
+        <div class="accent-corner"></div>
+        <!-- Main Content Wrapper -->
+        <div class="flex-1 flex flex-col p-12 pt-16 z-10">
+            <!-- Header Section -->
+            <div class="mb-10 border-l-8 border-blue-600 pl-6">
+                <p class="text-gray-500 uppercase tracking-widest font-semibold text-sm mb-2">Análisis de Situación</p>
+                <h1 class="text-5xl font-bold text-gray-800">Problemas Actuales</h1>
+            </div>
+            <!-- Content Grid (2 Columns) -->
+            <div class="grid grid-cols-2 gap-x-12 gap-y-8 flex-1">
+                <!-- Item 1 -->
+                <div
+                    class="list-item-container flex items-start p-4 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                    <div class="icon-box">
+                        <i class="fas fa-microchip text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Tecnología Obsoleta</h3>
+                        <p class="text-gray-600 leading-relaxed">Sistemas legacy con poca documentación técnica
+                            actualizada, dificultando el mantenimiento y la evolución tecnológica.</p>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div
+                    class="list-item-container flex items-start p-4 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                    <div class="icon-box">
+                        <i class="fas fa-database text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Pérdida de Datos</h3>
+                        <p class="text-gray-600 leading-relaxed">Incidencias recurrentes de pérdida o mala generación de
+                            datos críticos sin una causa raíz identificada claramente.</p>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div
+                    class="list-item-container flex items-start p-4 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                    <div class="icon-box">
+                        <i class="fas fa-clock text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Tiempos Extendidos</h3>
+                        <p class="text-gray-600 leading-relaxed">Procesamiento de información excesivamente lento,
+                            impactando la eficiencia operativa diaria y la toma de decisiones.</p>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div
+                    class="list-item-container flex items-start p-4 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                    <div class="icon-box">
+                        <i class="fas fa-ban text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Incompatibilidad</h3>
+                        <p class="text-gray-600 leading-relaxed">Dificultades severas para integrar nuevos equipos de
+                            hardware y dispositivos móviles modernos con la plataforma actual.</p>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div
+                    class="list-item-container flex items-start p-4 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                    <div class="icon-box">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Vulnerabilidades</h3>
+                        <p class="text-gray-600 leading-relaxed">Riesgos de seguridad activos debido a la falta de
+                            parches recientes en frameworks y lenguajes descontinuados.</p>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div
+                    class="list-item-container flex items-start p-4 rounded-xl hover:bg-gray-50 border border-transparent hover:border-gray-200">
+                    <div class="icon-box">
+                        <i class="fas fa-file-code text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-1">Configuración Rígida</h3>
+                        <p class="text-gray-600 leading-relaxed">Dependencia de configuraciones XML complejas, difíciles
+                            de depurar y altamente propensas a errores humanos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer -->
+        <div class="footer-bar">
+            <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+                <p class="font-semibold">ENERGUATE</p>
+                <span class="mx-2">|</span>
+                <p>Propuesta Técnica de Migración</p>
+            </div>
+            <div class="text-gray-400 text-sm font-mono">
+                <p>02</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

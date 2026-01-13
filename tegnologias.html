@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Tecnologías a Utilizar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+           width: 1240px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+            background-color: #f8fafc;
+            /* Slate 50 */
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        .font-heading {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Header Styling */
+        .header-section {
+            padding: 40px 60px 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header-accent {
+            width: 60px;
+            height: 6px;
+            background-color: #3b82f6;
+            /* Blue 500 */
+            margin-bottom: 15px;
+            border-radius: 3px;
+        }
+
+        /* Grid Layout */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: auto auto;
+            gap: 24px;
+            padding: 10px 60px 50px 60px;
+            flex: 1;
+        }
+
+        /* Card Styling */
+        .tech-card {
+            background-color: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.025);
+            border-color: #bfdbfe;
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .icon-wrapper {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 16px;
+            font-size: 20px;
+        }
+
+        /* Category specific colors */
+        .cat-lang .icon-wrapper {
+            background-color: #eff6ff;
+            color: #2563eb;
+        }
+
+        /* Blue */
+        .cat-fw .icon-wrapper {
+            background-color: #f0fdf4;
+            color: #16a34a;
+        }
+
+        /* Green */
+        .cat-db .icon-wrapper {
+            background-color: #fff7ed;
+            color: #ea580c;
+        }
+
+        /* Orange */
+        .cat-cloud .icon-wrapper {
+            background-color: #faf5ff;
+            color: #9333ea;
+        }
+
+        /* Purple */
+        .cat-devops .icon-wrapper {
+            background-color: #fef2f2;
+            color: #dc2626;
+        }
+
+        /* Red */
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1e293b;
+        }
+
+        /* Tags Styling */
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tech-tag {
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background-color: #f8fafc;
+            color: #475569;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-tag i {
+            margin-right: 6px;
+            font-size: 0.75em;
+            opacity: 0.7;
+        }
+
+        .cat-lang .tech-tag {
+            background-color: #eff6ff;
+            color: #1e40af;
+            border-color: #dbeafe;
+        }
+
+        .cat-fw .tech-tag {
+            background-color: #f0fdf4;
+            color: #166534;
+            border-color: #dcfce7;
+        }
+
+        .cat-db .tech-tag {
+            background-color: #fff7ed;
+            color: #9a3412;
+            border-color: #ffedd5;
+        }
+
+        .cat-cloud .tech-tag {
+            background-color: #faf5ff;
+            color: #6b21a8;
+            border-color: #f3e8ff;
+        }
+
+        .cat-devops .tech-tag {
+            background-color: #fef2f2;
+            color: #991b1b;
+            border-color: #fee2e2;
+        }
+
+        /* Custom span for frameworks card to make it wider */
+        .col-span-2 {
+            grid-column: span 2;
+        }
+
+        .row-span-2 {
+            grid-row: span 2;
+        }
+
+        /* Decorative Background */
+        .bg-shape-1 {
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: #e0f2fe;
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .bg-shape-2 {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 300px;
+            height: 300px;
+            background-color: #f0fdf4;
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        /* Footer */
+        .footer-info {
+            position: absolute;
+            bottom: 25px;
+            right: 60px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 3rem;
+            color: #cbd5e1;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Background Decor -->
+        <div class="bg-shape-1"></div>
+        <div class="bg-shape-2"></div>
+        <!-- Header -->
+        <div class="header-section">
+            <div class="header-accent"></div>
+            <h1 class="text-4xl font-bold text-gray-900">Tecnologías a Utilizar</h1>
+            <p class="text-gray-500 mt-2 text-lg">Stack tecnológico moderno y robusto seleccionado para la migración</p>
+        </div>
+        <!-- Tech Grid -->
+        <div class="tech-grid z-10">
+            <!-- Card 1: Lenguajes -->
+            <div class="tech-card cat-lang">
+                <div class="card-header">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h2 class="card-title">Lenguajes</h2>
+                </div>
+                <div class="tags-container">
+                    <div class="tech-tag"><i class="fab fa-android"></i> Kotlin</div>
+                    <div class="tech-tag"><i class="fab fa-java"></i> Java 21</div>
+                    <div class="tech-tag"><i class="fab fa-js"></i> JavaScript</div>
+                </div>
+            </div>
+            <!-- Card 2: Bases de Datos -->
+            <div class="tech-card cat-db">
+                <div class="card-header">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h2 class="card-title">Bases de Datos</h2>
+                </div>
+                <div class="tags-container">
+                    <div class="tech-tag"><i class="fas fa-server"></i> Oracle 19c</div>
+                </div>
+            </div>
+            <!-- Card 3: DevOps -->
+            <div class="tech-card cat-devops">
+                <div class="card-header">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h2 class="card-title">DevOps</h2>
+                </div>
+                <div class="tags-container">
+                    <div class="tech-tag"><i class="fab fa-github"></i> GitHub Actions</div>
+                </div>
+            </div>
+            <!-- Card 4: Frameworks (Wide) -->
+            <div class="tech-card cat-fw col-span-2">
+                <div class="card-header">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h2 class="card-title">Frameworks &amp; Librerías</h2>
+                </div>
+                <div class="tags-container">
+                    <div class="tech-tag"><i class="fas fa-leaf"></i> Spring Boot 3</div>
+                    <div class="tech-tag"><i class="fas fa-clock"></i> Spring Batch</div>
+                    <div class="tech-tag"><i class="fab fa-react"></i> React</div>
+                    <div class="tech-tag"><i class="fas fa-shield-alt"></i> Spring Security</div>
+                    <div class="tech-tag"><i class="fas fa-globe"></i> Spring Web</div>
+                    <div class="tech-tag"><i class="fas fa-table"></i> Spring Data JDBC</div>
+                    <div class="tech-tag"><i class="fas fa-cog"></i> Java Config</div>
+                    <div class="tech-tag"><i class="fas fa-file-alt"></i> Logback</div>
+                    <div class="tech-tag"><i class="fas fa-box-open"></i> Maven</div>
+                    <div class="tech-tag"><i class="fas fa-chart-bar"></i> JasperReports</div>
+                </div>
+            </div>
+            <!-- Card 5: Servicios Cloud -->
+            <div class="tech-card cat-cloud">
+                <div class="card-header">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h2 class="card-title">Servicios Cloud</h2>
+                </div>
+                <div class="tags-container">
+                    <div class="tech-tag"><i class="fab fa-google"></i> Firebase Crashlytics</div>
+                </div>
+            </div>
+        </div>
+        <!-- Page Number -->
+        <div class="footer-info">10</div>
+    </div>
+</body>
+
+</html>

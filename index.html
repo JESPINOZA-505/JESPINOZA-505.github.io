@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <title>Propuesta tecnica</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont;
+            background: #f9fafb;
+        }
+
+        header {
+            padding: 10px 15px;
+            border-bottom: 1px solid #e5e7eb;
+            background: white;
+            font-weight: 600;
+        }
+
+        main {
+            position: relative;
+            height: calc(100vh - 48px);
+        }
+
+        .viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: rgb(109, 113, 250);
+        }
+
+        /* Zonas invisibles de navegación */
+        .nav-zone {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 10%;
+            z-index: 10;
+        }
+
+        .nav-zone.left {
+            left: 0;
+            cursor: w-resize;
+        }
+
+        .nav-zone.right {
+            right: 0;
+            cursor: e-resize;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>Propuesta tecnica</header>
+
+<main>
+    <!-- Zonas de navegación -->
+    <div class="nav-zone left" aria-label="Anterior"></div>
+    <div class="nav-zone right" aria-label="Siguiente"></div>
+
+    <iframe id="viewer" class="viewer" src="presentacion.html"></iframe>
+</main>
+
+<script>
+    const viewer = document.getElementById("viewer");
+
+    const docs = [
+        "presentacion.html",
+        "problemas_actuales.html",
+        "solucion.html",
+        "objetivos.html",
+        "beneficios.html",
+        "tegnologias.html",
+        "entregables.html",
+        "presupuesto.html",
+        "anexos.html"
+
+    ];
+
+    let index = 0;
+
+    function update() {
+        viewer.src = docs[index];
+        location.hash = docs[index];
+    }
+
+    document.querySelector(".nav-zone.right").addEventListener("click", () => {
+        index = (index + 1) % docs.length;
+        update();
+    });
+
+    document.querySelector(".nav-zone.left").addEventListener("click", () => {
+        index = (index - 1 + docs.length) % docs.length;
+        update();
+    });
+
+    // Soporte teclado ← →
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") {
+            index = (index + 1) % docs.length;
+            update();
+        }
+        if (e.key === "ArrowLeft") {
+            index = (index - 1 + docs.length) % docs.length;
+            update();
+        }
+    });
+
+    // Cargar documento desde hash
+    const initial = location.hash.replace("#", "");
+    const found = docs.indexOf(initial);
+    if (found !== -1) {
+        index = found;
+    }
+    update();
+</script>
+
+</body>
+</html>

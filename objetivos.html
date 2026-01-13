@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Objetivos del Proyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+              width: 1240px;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff;
+            display: flex;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Left Column (General Objective) */
+        .left-col {
+            width: 40%;
+            background-color: #1e3a8a;
+            /* Corporate Dark Blue */
+            color: white;
+            padding: 60px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pattern-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#3b82f6 1px, transparent 1px);
+            /* Dot pattern fallback handled by removing gradient per instruction - using absolute shapes instead */
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        .circle-accent {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 40px solid rgba(255, 255, 255, 0.03);
+            top: -100px;
+            left: -100px;
+        }
+
+        .quote-icon {
+            font-size: 4rem;
+            color: #3b82f6;
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+
+        /* Right Column (Specific Objectives) */
+        .right-col {
+            width: 60%;
+            background-color: #ffffff;
+            padding: 60px 60px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .header-line {
+            width: 60px;
+            height: 6px;
+            background-color: #3b82f6;
+            margin-bottom: 30px;
+        }
+
+        .obj-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 35px;
+            padding: 20px;
+            border-radius: 12px;
+            background-color: #f8fafc;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .obj-item:hover {
+            background-color: #eff6ff;
+            border-left: 4px solid #3b82f6;
+            transform: translateX(5px);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .obj-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: #dbeafe;
+            color: #1e3a8a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .page-number {
+            position: absolute;
+            bottom: 30px;
+            right: 40px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 4rem;
+            color: #e2e8f0;
+            line-height: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Left Column: General Objective -->
+        <div class="left-col">
+            <!-- Decorative elements -->
+            <div class="circle-accent"></div>
+            <div class="absolute bottom-0 right-0 w-64 h-64 bg-blue-900 rounded-tl-full opacity-50"></div>
+            <div class="z-10 relative">
+                <div class="quote-icon">
+                    <i class="fas fa-bullseye"></i>
+                </div>
+                <h2 class="text-blue-300 uppercase tracking-widest text-sm font-bold mb-4">Objetivo General</h2>
+                <h1 class="text-4xl font-bold leading-tight mb-8">Base Tecnológica Sostenible</h1>
+                <div
+                    class="bg-blue-800 bg-opacity-50 p-6 rounded-lg border-l-4 border-blue-400 backdrop-filter backdrop-blur-sm">
+                    <p class="text-lg text-white leading-relaxed font-light">
+                        Establecer una base tecnológica sostenible, eficiente y segura mediante la actualización de
+                        todos los proyectos legacy a su versión más reciente y la refactorización estratégica del código
+                        base.
+                    </p>
+                </div>
+                <div class="mt-8 flex items-center space-x-4 text-sm text-blue-200">
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i> Eficiente
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i> Segura
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i> Escalable
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Column: Specific Objectives -->
+        <div class="right-col">
+            <div class="z-10">
+                <h2 class="text-3xl font-bold text-gray-800 mb-2">Objetivos Específicos</h2>
+                <div class="header-line"></div>
+                <!-- Objectives List -->
+                <div class="mt-4">
+                    <!-- Obj 1 -->
+                    <div class="obj-item">
+                        <div class="obj-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-1">Actualización Integral</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Actualización de todos los proyectos legacy
+                                a su versión más reciente para garantizar soporte y seguridad.</p>
+                        </div>
+                    </div>
+                    <!-- Obj 2 -->
+                    <div class="obj-item">
+                        <div class="obj-icon">
+                            <i class="fas fa-code-branch"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-1">Refactorización Estratégica</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Modernización del código base manteniendo
+                                intacta la lógica de negocio probada y funcional.</p>
+                        </div>
+                    </div>
+                    <!-- Obj 3 -->
+                    <div class="obj-item">
+                        <div class="obj-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-1">Optimización de Rendimiento</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Mejora significativa en tiempos de
+                                respuesta y reducción sistemática de la deuda técnica acumulada.</p>
+                        </div>
+                    </div>
+                    <!-- Obj 4 -->
+                    <div class="obj-item">
+                        <div class="obj-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-800 mb-1">Escalabilidad y Desarrollo</h3>
+                            <p class="text-gray-600 text-sm leading-relaxed">Facilitar un desarrollo continuo menos
+                                tedioso, más eficiente y en menor tiempo para futuras expansiones.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Page Number -->
+            <div class="page-number">09</div>
+        </div>
+    </div>
+</body>
+
+</html>

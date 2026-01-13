@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Propuesta Migración ENERGUATE</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Roboto:wght@300;400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 5px;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+
+        .slide-container {
+            width: 1240px;
+            height: 700px;
+            max-width: 1200px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            background-color: #0f172a;
+            /* Slate 900 - Dark Corporate Blue */
+        }
+
+        /* Typography overrides */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        .brand-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Geometric shapes */
+        .shape-bg-right {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 42%;
+            background-color: #1e293b;
+            /* Slate 800 - Lighter tone */
+            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+            z-index: 1;
+        }
+
+        .accent-bar-left {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 60px;
+            width: 2px;
+            background-color: #3b82f6;
+            /* Blue 500 */
+            opacity: 0.5;
+        }
+
+        .accent-square {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            border: 2px solid #3b82f6;
+            opacity: 0.1;
+            z-index: 0;
+        }
+
+        /* Custom text utility */
+        .text-shadow-sm {
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slide-container">
+        <!-- Decorative Background Elements -->
+        <div class="accent-bar-left"></div>
+        <div class="shape-bg-right"></div>
+        <!-- Abstract Tech Background Elements -->
+        <div class="accent-square" style="top: 10%; left: 40%;"></div>
+        <div class="accent-square" style="bottom: 15%; right: 10%; border-color: white; border-radius: 50%;"></div>
+        <!-- Background Icon Overlay -->
+        <div class="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-12 z-10 opacity-5">
+            <i class="fas fa-server text-[400px] text-white"></i>
+        </div>
+        <!-- Main Content Area (Left) -->
+        <div class="flex-1 flex flex-col justify-center pl-28 pr-8 z-20 relative h-full w-2/3">
+            <!-- Top Tag -->
+            <div class="mb-8">
+                <!--       <div
+                    class="inline-flex items-center bg-blue-900 bg-opacity-60 border border-blue-500 rounded px-4 py-2 backdrop-filter backdrop-blur-sm">
+                    <i class="fas fa-file-code text-blue-400 mr-3"></i>
+                    <p class="text-blue-100 font-semibold tracking-widest text-xs uppercase">Propuesta Técnica</p> 
+                </div> -->
+            </div>
+            <!-- Main Title -->
+            <div class="relative">
+                <h1 class="text-5xl font-extrabold text-white leading-tight mb-4 text-shadow-sm">
+                    Migración de Flujo Operativo <br />
+                    <span class="text-blue-400">Facturación en Sitio</span>
+                </h1>
+                <div class="w-24 h-1 bg-blue-500 mb-8 mt-4"></div>
+            </div>
+            <!-- Client Name Block -->
+            <div class="mb-12">
+                <p class="text-gray-400 text-sm mb-2 uppercase tracking-wider font-medium">Preparado para:</p>
+                <div class="flex items-center">
+                    <div class="bg-white p-2 rounded mr-4">
+                        <!-- Placeholder for logo icon using FontAwesome -->
+                        <i class="fas fa-bolt text-3xl text-yellow-500 px-1"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-4xl font-bold text-white tracking-wide">ENERGUATE</h2>
+                        <p class="text-blue-200 text-sm font-light mt-1">Compañía Distribuidora de Energía</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer / Meta Info -->
+            <div class="mt-auto mb-12 grid grid-cols-2 gap-12 text-gray-300 border-t border-gray-700 pt-6 max-w-2xl">
+                <div>
+                    <p class="text-xs uppercase text-gray-500 font-bold mb-2">Equipo Responsable</p>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3">
+                            <i class="fas fa-users-cog text-blue-400 text-sm"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-white text-lg leading-none">SIGEME</p>
+                            <p class="text-xs text-gray-400 mt-1">Soporte y Desarrollo Tecnológico</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <p class="text-xs uppercase text-gray-500 font-bold mb-2">Fecha de Emisión</p>
+                    <div class="flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-gray-700 flex items-center justify-center mr-3">
+                            <i class="far fa-calendar-alt text-blue-400 text-sm"></i>
+                        </div>
+                        <p class="font-semibold text-white text-lg">10 de Diciembre, 2025</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Side Stats / Decorative -->
+        <div class="w-1/3 h-full z-20 relative flex flex-col justify-between py-12 pr-12 items-end">
+            <!-- Top Status -->
+            <div class="flex items-center space-x-2">
+                <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                <span class="text-xs font-mono text-green-400 uppercase">System Status: Analysis Complete</span>
+            </div>
+            <!-- Bottom Version Info -->
+            <div class="text-right border-r-2 border-gray-600 pr-4">
+                <p class="text-gray-400 text-sm font-mono tracking-tighter">REF: ENER-MIG-2025</p>
+                <p class="text-gray-500 text-xs mt-1 uppercase">Confidencial - Uso Interno</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html
