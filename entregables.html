@@ -1,38 +1,54 @@
 <!DOCTYPE html>
 
 <html lang="es">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Entregables del Proyecto</title>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
-<style>
-        body { margin: 0; padding: 0; font-family: 'Roboto', sans-serif; background-color: #f3f4f6; }
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Entregables del Proyecto</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f3f4f6;
+        }
+
         .slide-container {
-               width: 1240px;
-            height: 700px;
+            width: 85%;
+            height: 100vh;
+            /* Se adapta a pantalla móvil */
             position: relative;
             overflow: hidden;
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
         }
-        
-        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; }
-        
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
         /* Header Styling */
         .header-section {
             padding: 50px 60px 20px 60px;
             position: relative;
             z-index: 10;
         }
-        
+
         .header-line {
             width: 80px;
             height: 6px;
-            background-color: #3b82f6; /* Blue 500 */
+            background-color: #3b82f6;
+            /* Blue 500 */
             margin-bottom: 20px;
             border-radius: 3px;
         }
@@ -59,7 +75,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .deliverable-card:hover {
             background-color: #fff;
             box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
@@ -71,8 +87,10 @@
             width: 64px;
             height: 64px;
             border-radius: 50%;
-            background-color: #eff6ff; /* Blue 50 */
-            color: #2563eb; /* Blue 600 */
+            background-color: #eff6ff;
+            /* Blue 50 */
+            color: #2563eb;
+            /* Blue 600 */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -81,14 +99,15 @@
             flex-shrink: 0;
             border: 2px solid #dbeafe;
         }
-        
+
         .check-badge {
             position: absolute;
             bottom: -5px;
             right: -5px;
             width: 24px;
             height: 24px;
-            background-color: #10b981; /* Emerald 500 */
+            background-color: #10b981;
+            /* Emerald 500 */
             color: white;
             border-radius: 50%;
             display: flex;
@@ -109,7 +128,7 @@
             background-color: #f1f5f9;
             z-index: 0;
         }
-        
+
         .bg-square-dots {
             position: absolute;
             bottom: 50px;
@@ -124,7 +143,7 @@
             z-index: 0;
             overflow: hidden;
         }
-        
+
         .dot {
             width: 6px;
             height: 6px;
@@ -143,7 +162,7 @@
             color: #cbd5e1;
             opacity: 0.6;
         }
-        
+
         .status-pill {
             display: inline-flex;
             align-items: center;
@@ -157,92 +176,137 @@
             letter-spacing: 0.05em;
             margin-bottom: 10px;
         }
-
+        
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5%;
+            border-top: 1px solid #e5e7eb;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            background-color: #fff;
+            z-index: 10;
+        }
     </style>
 </head>
+
 <body>
-<div class="slide-container">
-<!-- Background Elements -->
-<div class="bg-circle-1"></div>
-<div class="bg-square-dots">
-<!-- Simulation of dot pattern -->
-<div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-<div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-<div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-<div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-<div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-</div>
-<!-- Header -->
-<div class="header-section">
-<div class="header-line"></div>
-<h1 class="text-4xl font-bold text-gray-900 mb-2">Entregables Finales</h1>
-<p class="text-gray-500 text-lg max-w-2xl">
-            Lista detallada de los activos digitales, documentación y repositorios que serán entregados al finalizar el proceso de migración.
-        </p>
-</div>
-<!-- Grid -->
-<div class="deliverables-grid">
-<!-- Item 1 -->
-<div class="deliverable-card">
-<div class="icon-container">
-<i class="fas fa-file-archive"></i>
-<div class="check-badge"><i class="fas fa-check"></i></div>
-</div>
-<div class="flex-1">
-<div class="status-pill">Package</div>
-<h3 class="text-xl font-bold text-gray-800 mb-2">Código Fuente Empaquetado</h3>
-<p class="text-gray-600 leading-relaxed text-sm">
-                    Entrega completa del código fuente de todos los sistemas migrados en formato .zip, listo para archivado o distribución interna segura.
-                </p>
-</div>
-</div>
-<!-- Item 2 -->
-<div class="deliverable-card">
-<div class="icon-container">
-<i class="fab fa-github"></i>
-<div class="check-badge"><i class="fas fa-check"></i></div>
-</div>
-<div class="flex-1">
-<div class="status-pill">Repository</div>
-<h3 class="text-xl font-bold text-gray-800 mb-2">Repositorios GitHub</h3>
-<p class="text-gray-600 leading-relaxed text-sm">
-                    Transferencia de propiedad de los nuevos repositorios de cada sistema (SGC, ISGL Batch/Web/Mobile) subidos a la plataforma GitHub corporativa.
-                </p>
-</div>
-</div>
-<!-- Item 3 -->
-<div class="deliverable-card">
-<div class="icon-container">
-<i class="fas fa-file-signature"></i>
-<div class="check-badge"><i class="fas fa-check"></i></div>
-</div>
-<div class="flex-1">
-<div class="status-pill">Documentation</div>
-<h3 class="text-xl font-bold text-gray-800 mb-2">Despliegue y Firmas</h3>
-<p class="text-gray-600 leading-relaxed text-sm">
-                    Documentación técnica exhaustiva correspondiente a las nuevas formas de despliegue (Docker/CI) y gestión de firmas digitales para ejecutables y JARs.
-                </p>
-</div>
-</div>
-<!-- Item 4 -->
-<div class="deliverable-card">
-<div class="icon-container">
-<i class="fas fa-vial"></i>
-<div class="check-badge"><i class="fas fa-check"></i></div>
-</div>
-<div class="flex-1">
-<div class="status-pill">Quality Assurance</div>
-<h3 class="text-xl font-bold text-gray-800 mb-2">Casos de Pruebas</h3>
-<p class="text-gray-600 leading-relaxed text-sm">
-                    Documentación detallada de los casos de prueba ejecutados, incluyendo escenarios de éxito, bordes y reportes de cobertura de código.
-                </p>
-</div>
-</div>
-</div>
-<!-- Footer Info -->
-<div class="page-number">11</div>
-<!-- Small branding footer -->
-<div class="absolute bottom-0 left-0 w-full h-2 bg-blue-900"></div>
-</div>
+    <div class="slide-container">
+        <!-- Background Elements -->
+        <div class="bg-circle-1"></div>
+        <div class="bg-square-dots">
+            <!-- Simulation of dot pattern -->
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <!-- Header -->
+        <div class="header-section">
+            <div class="header-line"></div>
+            <h1 class="text-4xl font-bold text-gray-900 mb-2">Entregables Finales</h1>
+            <p class="text-gray-500 text-lg max-w-2xl">
+                Lista detallada de los activos digitales, documentación y repositorios que serán entregados al finalizar
+                el proceso de migración.
+            </p>
+        </div>
+        <!-- Grid -->
+        <div class="deliverables-grid">
+            <!-- Item 1 -->
+            <div class="deliverable-card">
+                <div class="icon-container">
+                    <i class="fas fa-file-archive"></i>
+                    <div class="check-badge"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="flex-1">
+                    <div class="status-pill">Package</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Código Fuente Empaquetado</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Entrega completa del código fuente de todos los sistemas migrados en formato .zip, listo para
+                        archivado o distribución interna segura.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 2 -->
+            <div class="deliverable-card">
+                <div class="icon-container">
+                    <i class="fab fa-github"></i>
+                    <div class="check-badge"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="flex-1">
+                    <div class="status-pill">Repository</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Repositorios GitHub</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Transferencia de propiedad de los nuevos repositorios de cada sistema (SGC, ISGL
+                        Batch/Web/Mobile) subidos a la plataforma GitHub corporativa.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 3 -->
+            <div class="deliverable-card">
+                <div class="icon-container">
+                    <i class="fas fa-file-signature"></i>
+                    <div class="check-badge"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="flex-1">
+                    <div class="status-pill">Documentation</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Despliegue y Firmas</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Documentación técnica exhaustiva correspondiente a las nuevas formas de despliegue (Docker/CI) y
+                        gestión de firmas digitales para ejecutables y JARs.
+                    </p>
+                </div>
+            </div>
+            <!-- Item 4 -->
+            <div class="deliverable-card">
+                <div class="icon-container">
+                    <i class="fas fa-vial"></i>
+                    <div class="check-badge"><i class="fas fa-check"></i></div>
+                </div>
+                <div class="flex-1">
+                    <div class="status-pill">Quality Assurance</div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Casos de Pruebas</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm">
+                        Documentación detallada de los casos de prueba ejecutados, incluyendo escenarios de éxito,
+                        bordes y reportes de cobertura de código.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Footer Info -->
+          <!-- Page Number -->
+        <div class="footer-bar">
+            <div class="flex items-center text-gray-500 text-sm">
+                <i class="fas fa-bolt text-yellow-500 mr-2"></i>
+                <p class="font-semibold">ENERGUATE</p>
+                <span class="mx-2">|</span>
+                <p>Propuesta Técnica de Migración</p>
+            </div>
+            <div class="text-gray-400 text-sm font-mono">
+                <p>08</p>
+            </div>
+        </div>
+    </div>
 </body>
+
 </html>

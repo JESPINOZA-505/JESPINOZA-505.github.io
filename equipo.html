@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equipo del Proyecto</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* Colores extraídos de tu imagen de referencia */
+            --primary-blue: #2563eb;       /* Azul intenso del título/barra */
+            --light-blue-bg: #eff6ff;      /* Fondo azul muy clarito de los iconos */
+            --text-dark: #1f2937;          /* Texto principal */
+            --text-gray: #6b7280;          /* Texto secundario */
+            --bg-color: #f8fafc;           /* Fondo general de la página */
+            --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            padding: 40px;
+        }
+
+        /* --- Estilo del Título (Header) --- */
+        .header-section {
+            border-left: 6px solid var(--primary-blue); /* La barra azul lateral */
+            padding-left: 20px;
+            margin-bottom: 50px;
+        }
+
+        .header-section .subtitle {
+            text-transform: uppercase;
+            color: var(--text-gray);
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .header-section h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        /* --- Grid de Tarjetas --- */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); /* Responsivo: 2 columnas en PC, 1 en móvil */
+            gap: 30px;
+        }
+
+        /* --- Diseño de la Tarjeta Individual --- */
+        .member-card {
+            background: white;
+            border-radius: 12px;
+            padding: 5px;
+            display: flex;
+            align-items: flex-start; /* Alineación superior */
+            gap: 20px;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.2s ease;
+        }
+
+        .member-card:hover {
+            transform: translateY(-5px); /* Efecto leve al pasar el mouse */
+        }
+
+        /* El contenedor de la foto/icono (Izquierda) */
+        .photo-container {
+            background-color: var(--light-blue-bg);
+            min-width: 80px;
+            height: 80px;
+            border-radius: 12px; /* Bordes redondeados pero cuadrados como la imagen */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--primary-blue);
+            font-size: 2rem;
+            overflow: hidden;
+        }
+
+        /* Si usas fotos reales, esto asegura que se vean bien */
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Contenido de texto (Derecha) */
+        .card-content {
+            flex: 1;
+        }
+
+        .member-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .member-specialty {
+            color: var(--primary-blue);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .member-bio {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* Botón de LinkedIn */
+        .linkedin-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #0077b5; /* Color oficial de LinkedIn */
+            font-weight: 600;
+            font-size: 0.9rem;
+            padding: 5px 0;
+            transition: opacity 0.2s;
+        }
+
+        .linkedin-btn:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        /* --- Footer (Simulando la barra inferior de tu imagen) --- */
+        .footer-bar {
+            margin-top: 60px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-gray);
+            font-size: 0.8rem;
+        }
+
+        .footer-logo {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .footer-logo i {
+            color: #f59e0b; /* Color naranja del rayo en tu imagen */
+        }
+
+        /* --- Media Queries para Móviles --- */
+        @media (max-width: 600px) {
+            body { padding: 20px; }
+            .team-grid { grid-template-columns: 1fr; }
+            .header-section h1 { font-size: 1.8rem; }
+            .member-card { flex-direction: column; align-items: center; text-align: center; }
+            .photo-container { margin-bottom: 15px; width: 100px; height: 100px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header-section">
+        <h2>Integrantes del Proyecto</h2>
+    </header>
+
+    <main class="team-grid">
+
+        <article class="member-card">
+            <div class="photo-container">
+                <i class="fa-solid fa-user-tie"></i>
+                </div>
+            <div class="card-content">
+                <h3 class="member-name">Emilio Morales</h3>
+                <span class="member-specialty">Project Manager & Scrum Master</span>
+                <p class="member-bio">
+                    Encargado de la planificación ágil y la comunicación con los stakeholders para garantizar los plazos.
+                </p>
+                <a href="https://www.linkedin.com/in/emilio-morales-3aa7b3142/" target="_blank" class="linkedin-btn">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </article>
+
+        <article class="member-card">
+            <div class="photo-container">
+                <i class="fa-solid fa-code"></i>
+            </div>
+            <div class="card-content">
+                <h3 class="member-name">Jerry Cano</h3>
+                <span class="member-specialty">Full Stack Developer</span>
+                <p class="member-bio">
+                    Experto en la transición de sistemas legacy a arquitecturas modernas, participando en la refactorización de interfaces, servicios backend, 
+                    integración de bases de datos y despliegues.
+                </p>
+                <a href="https://www.linkedin.com/in/jerry-eliezher-cano-garc%C3%ADa-93924710a/" target="_blank" class="linkedin-btn">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </article>
+
+        <article class="member-card">
+            <div class="photo-container">
+                <i class="fa-solid fa-database"></i>
+            </div>
+            <div class="card-content">
+                <h3 class="member-name">Edigson Morales</h3>
+                <span class="member-specialty">Business Intelligence</span>
+                <p class="member-bio">
+                    Responsable del analisis, validacion y cooerencia de los datos resultantes pre y post migración 
+                </p>
+                <a href="https://www.linkedin.com/in/edigson-leonardo-morales-3103b8140/" target="_blank" class="linkedin-btn">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </article>
+
+        <article class="member-card">
+            <div class="photo-container">
+                <i class="fa-solid fa-mobile"></i>
+            </div>
+            <div class="card-content">
+                <h3 class="member-name">Rodolfo Gutierrez</h3>
+                <span class="member-specialty">Android Developer</span>
+                <p class="member-bio">Experto en la transformación y migración por fases de sistemas móviles legacy 
+                    hacia arquitecturas modernas, garantizando la estabilidad, continuidad operativa y mejora progresiva de las soluciones. 
+                </p>
+                <a href="https://www.linkedin.com/in/rodolfo-gutierrez-776115116/" target="_blank" class="linkedin-btn">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </article>
+
+        
+        <article class="member-card">
+            <div class="photo-container">
+                <i class="fa-solid fa-mobile"></i>
+            </div>
+            <div class="card-content">
+                <h3 class="member-name">Joaquin Mayorga</h3>
+                <span class="member-specialty">Android Developer</span>
+                <p class="member-bio">Conocimientos especializados en migración, adaptación y escalabilidad de sistemas móviles, 
+                    así como sólida experiencia en lenguajes de programación y tecnologías modernas, brindara asistencia a distintas áreas requeridas del proyecto.
+                </p>
+                <a href="https://www.linkedin.com/in/joaqu%C3%ADn-espinoza-403941228/" target="_blank" class="linkedin-btn">
+                    <i class="fa-brands fa-linkedin"></i> LinkedIn
+                </a>
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer-bar">
+        <div class="footer-logo">
+            <i class="fa-solid fa-bolt"></i> ENERGUATE | Equipo de Migración
+        </div>
+        <div>02</div>
+    </footer>
+
+</body>
+</html>
