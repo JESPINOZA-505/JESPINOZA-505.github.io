@@ -188,10 +188,60 @@
             opacity: 0.8;
             font-size: 14px;
         }
+
+
+        /* Modal */
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        /* VIDEO RESPONSIVE SEGÚN ALTURA */
+        .video-wrapper {
+            position: relative;
+            height: 95vh;
+            /* 🔑 se ajusta al alto de pantalla */
+            aspect-ratio: 1220 / 2712;
+            /* proporción real */
+            max-width: 95vw;
+            /* evita overflow horizontal */
+            background: black;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .close {
+            position: absolute;
+            top: -44px;
+            right: 0;
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
+
+
 
     <div class="header">
         <div class="linea-azul"></div>
@@ -226,6 +276,7 @@
             <p>Android Preview</p>
             <a href="https://drive.google.com/file/d/19l98WMZ_5qzYUzMO18aM5iBj2ObiaDiM/view?usp=sharing"
                 class="btn btn-mobile" rel="noopener noreferrer" target="_blank">Descargar prototipo</a>
+            <a onclick="openVideo()" class="btn btn-mobile" rel="noopener noreferrer" target="_blank">Ver prototipo</a>
         </div>
     </div>
 
@@ -240,7 +291,31 @@
         </div>
     </div>
 
+    <div class="modal" id="videoModal" onclick="closeVideo(event)">
+        <div class="video-wrapper">
+            <button class="close" onclick="closeVideo()">✕ Cerrar</button>
+            <video controls autoplay>
+                <source src="/video/energo.mp4" type="video/mp4">
+                Tu navegador no soporta video.
+            </video>
+        </div>
+    </div>
 
+    <script>
+        function openVideo() {
+            document.getElementById('videoModal').classList.add('active');
+        }
+
+        function closeVideo(event) {
+            if (!event || event.target.classList.contains('modal')) {
+                const modal = document.getElementById('videoModal');
+                const video = modal.querySelector('video');
+                video.pause();
+                video.currentTime = 0;
+                modal.classList.remove('active');
+            }
+        }
+    </script>
 </body>
 
 </html>
