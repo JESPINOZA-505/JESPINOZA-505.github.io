@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presentación Auditoría - Proyecto de Mejora</title>
+    <!-- Tailwind CSS para el estilado rápido y responsive -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para los iconos de la presentación -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        enerDark: '#004670',    // Azul oscuro institucional
+                        enerLight: '#007ec5',   // Azul claro institucional
+                        enerYellow: '#f4b31a',  // Amarillo institucional
+                        enerRed: '#e11b22',     // Rojo institucional
+                        enerGreen: '#85B5A3'    // Verde del logo
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        
+        body {
+            background: linear-gradient(135deg, #e2e8f0 0%, #f8fafc 100%);
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Formas corporativas de fondo inspiradas en la primera versión */
+        .bg-brand-1 {
+            position: fixed; top: -20vh; right: -10vw; width: 60vw; height: 60vw;
+            background: radial-gradient(circle, rgba(0,126,197,0.08) 0%, rgba(0,126,197,0) 70%);
+            border-radius: 50%; z-index: -1; pointer-events: none;
+        }
+        .bg-brand-2 {
+            position: fixed; bottom: -20vh; left: -10vw; width: 50vw; height: 50vw;
+            background: radial-gradient(circle, rgba(244,179,26,0.08) 0%, rgba(244,179,26,0) 70%);
+            border-radius: 50%; z-index: -1; pointer-events: none;
+        }
+
+        /* Estructura y animación fluida de diapositivas */
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            transform: translateY(20px) scale(0.98);
+        }
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0) scale(1);
+        }
+        
+        /* Contenedor principal de la diapositiva con el borde superior azul original */
+        .slide-content {
+            background-color: rgba(255, 255, 255, 0.98);
+            border-radius: 1.25rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 70, 112, 0.15), 0 0 0 1px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 1100px;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 3rem;
+            position: relative;
+            border-top: 8px solid #004670;
+        }
+
+        /* Scrollbar personalizado institucional */
+        .slide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        .slide-content::-webkit-scrollbar-track {
+            background: #f1f5f9;
+            border-radius: 8px;
+        }
+        .slide-content::-webkit-scrollbar-thumb {
+            background: #007ec5;
+            border-radius: 8px;
+        }
+        .slide-content::-webkit-scrollbar-thumb:hover {
+            background: #004670;
+        }
+    </style>
+</head>
+<body class="text-slate-800 antialiased selection:bg-enerLight selection:text-white relative min-h-screen">
+    
+    <!-- Elementos de fondo corporativos -->
+    <div class="bg-brand-1"></div>
+    <div class="bg-brand-2"></div>
+
+    <!-- Logo discreto inferior que no obstruye información -->
+    <div class="fixed bottom-6 left-6 z-40 hidden lg:block opacity-60 hover:opacity-100 transition-opacity duration-300">
+        <img src="logo-energuate_2.png" alt="Energuate Logo" class="h-8 object-contain" onerror="this.src='https://placehold.co/150x50/004670/ffffff?text=ENERGUATE'">
+    </div>
+
+    <div class="relative w-full h-screen overflow-hidden">
+
+        <!-- DIAPOSITIVA 1: Portada (Diseño Temático Premium de la Primera Versión) -->
+        <div class="slide active" id="slide-1">
+            <div class="slide-content border-t-0 p-0 overflow-hidden flex flex-col md:flex-row h-full md:h-auto min-h-[60vh] shadow-2xl">
+                <!-- Lado Branding (Azul Oscuro Institucional) -->
+                <div class="w-full md:w-5/12 bg-enerDark text-white p-10 lg:p-12 flex flex-col justify-center relative overflow-hidden">
+                    <!-- Burbujas decorativas del logo -->
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-enerLight rounded-full opacity-50 blur-2xl"></div>
+                    <div class="absolute -bottom-24 -right-10 w-72 h-72 bg-enerYellow rounded-full opacity-30 blur-2xl"></div>
+                    <div class="absolute top-1/2 left-1/2 w-48 h-48 bg-enerRed rounded-full opacity-20 blur-3xl transform -translate-x-1/2 -translate-y-1/2"></div>
+                    
+                    <div class="relative z-10">
+                        <div class="bg-white p-4 rounded-2xl inline-block shadow-xl mb-6">
+                            <img src="logo-energuate_2.png" alt="Energuate" class="h-12 object-contain" onerror="this.src='https://placehold.co/150x50/004670/ffffff?text=ENERGUATE'">
+                        </div>
+                        <h2 class="text-sm font-bold tracking-widest uppercase text-enerYellow mb-2 drop-shadow-md">Gerencia de Tecnología e Innovación</h2>
+                        <h3 class="text-xs text-enerLight mb-2 font-medium">Distribuidora de Energía</h3>
+                        <div class="w-12 h-1 bg-enerLight mt-4 mb-4 rounded"></div>
+                        <p class="text-xs text-slate-300">Auditoría & Propuesta de Proyecto • Junio 2026</p>
+                    </div>
+                </div>
+
+                <!-- Lado Contenido -->
+                <div class="w-full md:w-7/12 p-10 lg:p-16 flex flex-col justify-center bg-white relative">
+                    <i class="fas fa-bolt absolute right-10 bottom-10 text-9xl text-slate-50 opacity-40 pointer-events-none"></i>
+                    
+                    <div class="relative z-10">
+                        <span class="inline-block px-3 py-1 bg-enerLight/10 text-enerLight rounded-full text-xs font-bold mb-6 border border-enerLight/20">Presentación de Auditoría</span>
+                        <h1 class="text-3xl lg:text-4xl font-extrabold text-enerDark leading-tight mb-4">
+                            Optimización de Procesos <br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-enerLight to-enerDark">y Resolución de Anomalías</span>
+                        </h1>
+                        <p class="text-base text-slate-500 mb-8 leading-relaxed max-w-lg border-l-4 border-enerYellow pl-4">
+                            Informe ejecutivo de auditoría: Presentación de la solución viable para automatización de anomalías y reporte de inviabilidad técnica en sitio.
+                        </p>
+                        
+                        <div class="flex flex-wrap gap-4">
+                            <button onclick="nextSlide()" class="group bg-enerDark hover:bg-enerLight text-white px-6 py-3 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-enerLight/50 flex items-center w-max transform hover:-translate-y-1">
+                                Iniciar Auditoría
+                                <i class="fas fa-arrow-right ml-3 group-hover:translate-x-2 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 2: Equipo del Proyecto -->
+        <div class="slide" id="slide-2">
+            <div class="slide-content">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerLight">Talento Técnico</span>
+                    <h2 class="text-3xl font-extrabold text-enerDark">Equipo de Proyecto & Auditoría</h2>
+                </div>
+                
+                <p class="text-slate-500 mb-6 text-sm">
+                    Especialistas de la Gerencia de Tecnología e Innovación responsables del diagnóstico de la infraestructura móvil y el diseño de la solución automatizada:
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Integrante 1 -->
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-xl hover:shadow-md transition-shadow duration-300 relative group">
+                        <div class="absolute top-4 right-4 text-slate-300 group-hover:text-enerLight transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-enerDark text-lg">Emilio Morales</h3>
+                        <span class="text-xs font-semibold px-2 py-1 bg-enerYellow/20 text-yellow-800 rounded-full">Product Owner (PO)</span>
+                        <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                            Responsable de maximizar el valor del producto, alineando las necesidades del negocio con los objetivos estratégicos de la organización.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 2 -->
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-xl hover:shadow-md transition-shadow duration-300 relative group">
+                        <div class="absolute top-4 right-4 text-slate-300 group-hover:text-enerLight transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-enerDark text-lg">Jerry Cano</h3>
+                        <span class="text-xs font-semibold px-2 py-1 bg-enerLight/20 text-enerLight rounded-full">Full Stack Developer</span>
+                        <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                            Experto en transición de sistemas legacy a arquitecturas modernas, refactorización de interfaces, backend, base de datos y despliegue.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 3 -->
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-xl hover:shadow-md transition-shadow duration-300 relative group">
+                        <div class="absolute top-4 right-4 text-slate-300 group-hover:text-enerLight transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-enerDark text-lg">Edigson Morales</h3>
+                        <span class="text-xs font-semibold px-2 py-1 bg-enerGreen/20 text-emerald-800 rounded-full">Business Intelligence</span>
+                        <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                            Responsable del análisis, validación, modelamiento y coherencia de los datos analíticos resultantes pre y post migración.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 4 -->
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-xl hover:shadow-md transition-shadow duration-300 relative group">
+                        <div class="absolute top-4 right-4 text-slate-300 group-hover:text-enerLight transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-enerDark text-lg">Rodolfo Gutierrez</h3>
+                        <span class="text-xs font-semibold px-2 py-1 bg-enerLight/25 text-indigo-800 rounded-full">Android Developer Sr.</span>
+                        <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                            Experto en la migración por fases de aplicativos móviles de campo heredados para garantizar la estabilidad de las operaciones en sitio.
+                        </p>
+                    </div>
+
+                    <!-- Integrante 5 -->
+                    <div class="bg-slate-50 border border-slate-100 p-5 rounded-xl hover:shadow-md transition-shadow duration-300 relative group">
+                        <div class="absolute top-4 right-4 text-slate-300 group-hover:text-enerLight transition-colors">
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </div>
+                        <h3 class="font-bold text-enerDark text-lg">Joaquin Mayorga</h3>
+                        <span class="text-xs font-semibold px-2 py-1 bg-enerLight/25 text-indigo-800 rounded-full">Android Developer</span>
+                        <p class="text-slate-500 text-xs mt-3 leading-relaxed">
+                            Especialista en escalabilidad y adaptación móvil, brindando soporte analítico a la migración tecnológica e interfaces de usuario.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 3: Diagnóstico de la Situación Actual -->
+        <div class="slide" id="slide-3">
+            <div class="slide-content">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerRed">Auditoría Operativa</span>
+                    <h2 class="text-3xl font-extrabold text-enerDark">Diagnóstico de la Situación Actual</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+                    <!-- Datos Operativos (Columna 5) -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="bg-slate-50 border border-slate-100 rounded-xl p-5">
+                            <h3 class="font-bold text-slate-700 mb-4 text-sm uppercase tracking-wide">Volumen de Anomalías por Período</h3>
+                            
+                            <div class="space-y-4">
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                                        <span>Consumo Fuera de Límites (75%)</span>
+                                        <span class="text-enerLight">21,000</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-enerLight h-2.5 rounded-full" style="width: 75%"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="flex justify-between text-xs font-bold text-slate-600 mb-1">
+                                        <span>Otros Tipos de Anomalías (25%)</span>
+                                        <span class="text-slate-400">7,000</span>
+                                    </div>
+                                    <div class="w-full bg-slate-200 h-2.5 rounded-full overflow-hidden">
+                                        <div class="bg-slate-400 h-2.5 rounded-full" style="width: 25%"></div>
+                                    </div>
+                                </div>
+                                <div class="pt-3 border-t border-slate-200 flex justify-between items-center text-sm font-extrabold text-enerDark">
+                                    <span>Total Registradas:</span>
+                                    <span>28,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Criterios de Disparador -->
+                        <div class="bg-enerYellow/10 border border-enerYellow/20 rounded-xl p-5">
+                            <h4 class="font-bold text-enerDark text-xs uppercase tracking-wide mb-2"><i class="fas fa-exclamation-triangle mr-2 text-enerYellow"></i>Criterios de Activación Actual</h4>
+                            <ul class="text-xs text-slate-700 space-y-1.5 list-disc pl-4">
+                                <li>Consumo registrado supera el <strong>200%</strong> o es inferior al <strong>50%</strong> del promedio móvil de los últimos 3 meses.</li>
+                                <li>Consumo absoluto supera los <strong>500 kWh</strong>.</li>
+                                <li>El contrato del servicio tiene una antigüedad mayor a la definida (no recién contratado).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Problemáticas críticas (Columna 7) -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <h3 class="font-extrabold text-slate-700 text-sm uppercase tracking-wide">Problemática Crítica Identificada</h3>
+                        
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 bg-red-50 border border-red-100 rounded-xl flex items-start space-x-3">
+                                <span class="bg-red-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shrink-0 font-bold">1</span>
+                                <div>
+                                    <h4 class="font-bold text-red-950 text-xs">Carga Inviable</h4>
+                                    <p class="text-red-900 text-xs mt-1">21,000 casos periódicos manuales no son sustentables para el staff disponible.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-orange-50 border border-orange-100 rounded-xl flex items-start space-x-3">
+                                <span class="bg-orange-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shrink-0 font-bold">2</span>
+                                <div>
+                                    <h4 class="font-bold text-orange-950 text-xs">Retrasos Operativos</h4>
+                                    <p class="text-orange-900 text-xs mt-1">La revisión humana retrasa la facturación regular, afectando el flujo de caja e incrementando reclamos.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-amber-50 border border-amber-100 rounded-xl flex items-start space-x-3">
+                                <span class="bg-amber-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shrink-0 font-bold">3</span>
+                                <div>
+                                    <h4 class="font-bold text-amber-950 text-xs">Falta de Estandarización</h4>
+                                    <p class="text-amber-900 text-xs mt-1">La lógica de resolución reside en el criterio de analistas aislados, causando inconsistencias.</p>
+                                </div>
+                            </div>
+
+                            <div class="p-4 bg-yellow-50 border-yellow-100 border rounded-xl flex items-start space-x-3">
+                                <span class="bg-enerYellow text-white rounded-full w-6 h-6 flex items-center justify-center text-xs shrink-0 font-bold">4</span>
+                                <div>
+                                    <h4 class="font-bold text-yellow-950 text-xs">Escalabilidad Nula</h4>
+                                    <p class="text-yellow-900 text-xs mt-1">La expansión del servicio exige contratar analistas proporcionalmente, disparando el costo fijo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 4: Solución Propuesta (Detallada y Ampliada) -->
+        <div class="slide" id="slide-4">
+            <div class="slide-content">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerGreen">Propuesta Tecnológica</span>
+                    <h2 class="text-3xl font-extrabold text-enerDark">Solución: Sistema de Resolución Automática</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Arquitectura de Capas -->
+                    <div class="lg:col-span-7 flex flex-col justify-between space-y-6">
+                        <div>
+                            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                                Se propone un sistema con <strong>separación completa de responsabilidades</strong> (Separation of Concerns). Esto desacopla las reglas de negocio críticas del código duro de ejecución, permitiendo su modificación dinámica sin necesidad de desplegar nuevas versiones del sistema.
+                            </p>
+                        </div>
+
+                        <!-- Tarjeta de Capa 1 -->
+                        <div class="bg-slate-50 border-l-4 border-enerLight p-4 rounded-r-xl">
+                            <span class="text-xs font-bold text-enerLight uppercase">Capa 1: Repositorio de Reglas de Negocio</span>
+                            <h3 class="font-bold text-enerDark text-base">Configuración Desacoplada</h3>
+                            <p class="text-xs text-slate-500 mt-1">
+                                Almacena umbrales en base de datos o gestores de reglas. Los analistas sénior o directores pueden ajustar los valores en tiempo real cuando cambien las regulaciones comerciales o estacionales (ej. cambiar el tope de 500 kWh o el límite del 200%).
+                            </p>
+                        </div>
+
+                        <!-- Tarjeta de Capa 2 -->
+                        <div class="bg-slate-50 border-l-4 border-enerDark p-4 rounded-r-xl">
+                            <span class="text-xs font-bold text-enerDark uppercase">Capa 2: Motor de Ejecución Lógica</span>
+                            <h3 class="font-bold text-enerDark text-base">Motor Algorítmico de Alto Rendimiento</h3>
+                            <p class="text-xs text-slate-500 mt-1">
+                                El core del sistema que recopila la lectura de consumo y las contrasta de manera veloz con las reglas inyectadas desde el repositorio, resolviendo automáticamente el caso o escalándolo inmediatamente si cae en un caso de excepción.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Diagrama y Metas -->
+                    <div class="lg:col-span-5 bg-enerDark text-white p-6 rounded-2xl flex flex-col justify-between">
+                        <div>
+                            <h4 class="font-bold text-enerYellow text-xs uppercase tracking-widest mb-4">Metas de Rendimiento</h4>
+                            <div class="space-y-4">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-magic text-enerYellow text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold">&gt; 80% Automatización</h5>
+                                        <p class="text-white/70 text-xs">De las anomalías de consumo fuera de límite.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-history text-enerLight text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold">-60% Tiempo de Respuesta</h5>
+                                        <p class="text-white/70 text-xs">Reducción del ciclo promedio de resolución.</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center">
+                                        <i class="fas fa-shield-alt text-emerald-300 text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="text-sm font-bold 100% Auditoría</h5>
+                                        <p class="text-white/70 text-xs">Bitácora completa con regla, valor y hora.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="border-t border-white/10 pt-4 mt-6 text-center text-xs text-white/50">
+                            Propuesta Tecnológica • Gerencia de Innovación
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 5: Flujo del Algoritmo (Línea de Tiempo) -->
+        <div class="slide" id="slide-5">
+            <div class="slide-content">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerLight">Lógica de Operación</span>
+                    <h2 class="text-3xl font-extrabold text-enerDark">Flujo del Algoritmo de Decisión</h2>
+                </div>
+
+                <div class="relative mt-8">
+                    <!-- Línea del tiempo en desktop (oculto en móvil) -->
+                    <div class="absolute top-1/2 left-0 right-0 h-1 bg-slate-200 -translate-y-1/2 z-0 hidden lg:block"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6 relative z-10">
+                        <!-- Paso 1 -->
+                        <div class="bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-extrabold text-enerLight block mb-1">01. INGESTA</span>
+                            <h4 class="font-bold text-slate-700 text-sm mb-2">Lectura de Datos</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Captura de consumos del periodo desde bases centrales.</p>
+                        </div>
+
+                        <!-- Paso 2 -->
+                        <div class="bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-extrabold text-enerLight block mb-1">02. CARGA</span>
+                            <h4 class="font-bold text-slate-700 text-sm mb-2">Carga de Reglas</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">El motor carga del repositorio las reglas y umbrales activos.</p>
+                        </div>
+
+                        <!-- Paso 3 -->
+                        <div class="bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-extrabold text-enerLight block mb-1">03. FILTRADO</span>
+                            <h4 class="font-bold text-slate-700 text-sm mb-2">Antigüedad</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Se descartan contratos nuevos para mitigar falsos positivos.</p>
+                        </div>
+
+                        <!-- Paso 4 -->
+                        <div class="bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-extrabold text-enerYellow block mb-1">04. CÁLCULO</span>
+                            <h4 class="font-bold text-slate-700 text-sm mb-2">Evaluación</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Se evalúa desviación (200%/50%) vs promedio de 3 meses.</p>
+                        </div>
+
+                        <!-- Paso 5 -->
+                        <div class="bg-white border border-slate-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-shadow">
+                            <span class="text-xs font-extrabold text-enerYellow block mb-1">05. MÁXIMO</span>
+                            <h4 class="font-bold text-slate-700 text-sm mb-2">Filtro Absoluto</h4>
+                            <p class="text-slate-500 text-xs leading-relaxed">Se evalúa si la lectura supera el límite de consumo de 500 kWh.</p>
+                        </div>
+
+                        <!-- Paso 6 -->
+                        <div class="bg-emerald-50 border border-emerald-100 rounded-xl p-4 shadow-sm">
+                            <span class="text-xs font-extrabold text-emerald-600 block mb-1">06. REGISTRO</span>
+                            <h4 class="font-bold text-emerald-950 text-sm mb-2">Auditoría</h4>
+                            <p class="text-emerald-800 text-xs leading-relaxed">Resolución automática inmediata con firma digital y marca de tiempo.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-50 border border-slate-100 rounded-xl p-4 mt-8 flex items-center space-x-3 text-xs text-slate-500">
+                    <i class="fas fa-info-circle text-enerLight text-lg"></i>
+                    <span><strong>Nota de Auditoría:</strong> El algoritmo opera de manera transaccional. Si alguna validación de datos falla, el caso es marcado con código de error específico y escalado automáticamente a cola humana en menos de 0.5 milisegundos.</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 6: Beneficios Esperados del Proyecto -->
+        <div class="slide" id="slide-6">
+            <div class="slide-content">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerLight">Evaluación de Valor</span>
+                    <h2 class="text-3xl font-extrabold text-enerDark">Beneficios Esperados</h2>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Operativos -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-enerLight/10 text-enerLight rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h3 class="font-bold text-enerDark text-lg mb-2">Beneficios Operativos</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                <li>Liberación de analistas para casos de alta complejidad o sospechas de fraude complejo.</li>
+                                <li>Eliminación de inconsistencias de resolución entre personas operadoras.</li>
+                                <li>Procesamiento determinista en tiempo predecible.</li>
+                            </ul>
+                        </div>
+                        <span class="text-[10px] font-bold text-enerLight uppercase tracking-wider mt-4">Eficiencia Diaria</span>
+                    </div>
+
+                    <!-- Técnicos -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-enerDark/10 text-enerDark rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <h3 class="font-bold text-enerDark text-lg mb-2">Beneficios Técnicos</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                <li>Modificación de umbrales sin intervención del departamento de desarrollo de software.</li>
+                                <li>Bajo acoplamiento del motor, facilitando el mantenimiento y pruebas unitarias rápidas.</li>
+                                <li>Capacidad de escalamiento horizontal instantáneo en servidores virtuales si el volumen crece.</li>
+                            </ul>
+                        </div>
+                        <span class="text-[10px] font-bold text-enerDark uppercase tracking-wider mt-4">Arquitectura Limpia</span>
+                    </div>
+
+                    <!-- Económicos -->
+                    <div class="bg-slate-50 border border-slate-100 rounded-xl p-6 flex flex-col justify-between">
+                        <div>
+                            <div class="w-12 h-12 bg-enerYellow/20 text-yellow-800 rounded-xl flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-hand-holding-usd"></i>
+                            </div>
+                            <h3 class="font-bold text-enerDark text-lg mb-2">Beneficios Económicos</h3>
+                            <ul class="text-xs text-slate-600 space-y-2 list-disc pl-4 leading-relaxed">
+                                <li>Reducción directa del costo de horas-hombre invertidas en casos rutinarios.</li>
+                                <li>Reducción del riesgo de multas regulatorias por facturación fuera de plazo legal.</li>
+                                <li>Rápido Retorno de Inversión (ROI) gracias a la gran cantidad de casos resueltos en el periodo piloto.</li>
+                            </ul>
+                        </div>
+                        <span class="text-[10px] font-bold text-amber-600 uppercase tracking-wider mt-4">Retorno de Inversión</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 7: Reporte de Inviabilidad (OCR / Machine Learning en Sitio) -->
+        <div class="slide" id="slide-7">
+            <div class="slide-content">
+                <div class="border-b border-red-200 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerRed flex items-center gap-2">
+                        <i class="fas fa-ban text-enerRed animate-pulse"></i> Dictamen de Auditoría Técnica
+                    </span>
+                    <h2 class="text-3xl font-extrabold text-red-950">Inviabilidad: OCR Inteligente en Sitio</h2>
+                </div>
+
+                <div class="bg-red-50 border border-red-200 p-6 rounded-2xl mb-6">
+                    <h3 class="font-extrabold text-red-950 text-base mb-3"><i class="fas fa-exclamation-triangle mr-2"></i>Conclusión de las Pruebas de Concepto (PoC)</h3>
+                    <p class="text-red-900 text-sm leading-relaxed">
+                        Tras someter a prueba diversos modelos de Machine Learning y visión por computadora de última generación (tanto servicios cloud comerciales como de ejecución embebida local), <strong>se dictamina la INVIABILIDAD de desplegar inmediatamente en producción</strong> la facturación automática mediante reconocimiento visual del medidor.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Restricción Hardware -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white shadow-sm">
+                        <div class="flex items-center space-x-2 text-slate-800 mb-2">
+                            <i class="fas fa-mobile-alt text-enerRed"></i>
+                            <h4 class="font-bold text-xs uppercase tracking-wide">Restricciones de Terminales</h4>
+                        </div>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            El parque actual de terminales móviles en campo carece de procesadores con soporte para instrucciones neuronales (NPUs). Ejecutar modelos locales lentos disminuye dramáticamente la productividad de la cuadrilla.
+                        </p>
+                    </div>
+
+                    <!-- Alta Dispersión -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white shadow-sm">
+                        <div class="flex items-center space-x-2 text-slate-800 mb-2">
+                            <i class="fas fa-tachometer-alt text-enerRed"></i>
+                            <h4 class="font-bold text-xs uppercase tracking-wide">113 Tipos de Medidores</h4>
+                        </div>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            Existe una variabilidad extrema en las tipografías de rodillo numérico y pantallas LCD. Las condiciones cambiantes de iluminación, sombras y suciedad disparan los márgenes de error.
+                        </p>
+                    </div>
+
+                    <!-- Riesgo Legal -->
+                    <div class="border border-slate-200 p-4 rounded-xl bg-white shadow-sm">
+                        <div class="flex items-center space-x-2 text-slate-800 mb-2">
+                            <i class="fas fa-balance-scale text-enerRed"></i>
+                            <h4 class="font-bold text-xs uppercase tracking-wide">Precisión Crítica Regulatoria</h4>
+                        </div>
+                        <p class="text-slate-500 text-xs leading-relaxed">
+                            La facturación errónea basada en lecturas inexactas de OCR genera de inmediato una alta fricción con los clientes y costosas reclamaciones y multas por parte del ente regulador eléctrico.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- DIAPOSITIVA 8: Hoja de Ruta Futura y Punto Crítico -->
+        <div class="slide" id="slide-8">
+            <div class="slide-content">
+                <div class="border-b border-slate-100 pb-4 mb-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-enerYellow">Estrategia y Mitigación</span>
+                    <h2 class="text-3xl font-extrabold text-enerDark">Punto Crítico & Estrategia de Futuro</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Punto Crítico (Izquierda) -->
+                    <div class="lg:col-span-5 bg-enerDark text-white p-6 rounded-2xl flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-10 -bottom-10 w-40 h-40 bg-white/5 rounded-full"></div>
+                        
+                        <div>
+                            <h3 class="font-bold text-enerYellow text-sm uppercase tracking-wider mb-4"><i class="fas fa-skull-crossbones mr-2"></i>Punto Crítico de Infraestructura</h3>
+                            <p class="text-xs text-slate-200 leading-relaxed mb-4">
+                                Cualquier iniciativa futura de Inteligencia Artificial requiere, de forma obligatoria, una <strong>modernización e integración total de los sistemas operativos legados</strong> que ejecutan los servicios centrales.
+                            </p>
+                            <p class="text-xs text-slate-300 leading-relaxed">
+                                Desplegar modelos de visión sin contar con canales de comunicación y procesamiento de tiempo real modernos expondrá los sistemas transaccionales a un cuello de botella sistémico indeseado.
+                            </p>
+                        </div>
+
+                        <div class="pt-4 border-t border-white/15 text-xs text-enerLight font-semibold">
+                            Requisito: Migración Integral de Infraestructura
+                        </div>
+                    </div>
+
+                    <!-- Mitigaciones del OCR (Derecha) -->
+                    <div class="lg:col-span-7 flex flex-col justify-between">
+                        <h3 class="font-extrabold text-slate-700 text-sm uppercase tracking-wide mb-3">Estrategia de Mitigación OCR a Mediano Plazo</h3>
+                        
+                        <div class="space-y-4">
+                            <!-- Ítem 1 -->
+                            <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                <div class="bg-enerLight text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">A</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-700 text-xs">Plan de Renovación de Dispositivos</h4>
+                                    <p class="text-slate-500 text-xs mt-0.5">Evaluar terminales móviles de campo con chips dedicados para procesamiento neuronal local (IA en el dispositivo).</p>
+                                </div>
+                            </div>
+
+                            <!-- Ítem 2 -->
+                            <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                <div class="bg-enerLight text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">B</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-700 text-xs">Guía Fotográfica Asistida en APK</h4>
+                                    <p class="text-slate-500 text-xs mt-0.5">Incorporar máscaras visuales de encuadre digital en la aplicación móvil para estandarizar la calidad, el enfoque y la iluminación de la toma.</p>
+                                </div>
+                            </div>
+
+                            <!-- Ítem 3 -->
+                            <div class="flex items-start space-x-3 bg-slate-50 p-3 rounded-lg border border-slate-100">
+                                <div class="bg-enerLight text-white w-6 h-6 rounded-full flex items-center justify-center shrink-0 text-xs font-bold">C</div>
+                                <div>
+                                    <h4 class="font-bold text-slate-700 text-xs">Foco de Entrenamiento Acotado</h4>
+                                    <p class="text-slate-500 text-xs mt-0.5">Categorizar las 113 marcas de medidores y limitar las primeras pruebas de entrenamiento IA únicamente a los 5 medidores más masivos.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div> <!-- Cierre del Contenedor de Diapositivas -->
+
+    <!-- Controles Globales Flotantes -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 flex items-center space-x-5 bg-white/95 backdrop-blur-md px-6 py-3 rounded-full shadow-[0_8px_30px_rgba(0,70,112,0.2)] border border-enerDark/10 z-50">
+        <button onclick="prevSlide()" class="w-10 h-10 rounded-full bg-slate-100 hover:bg-enerDark text-enerDark hover:text-white transition-all duration-300 flex items-center justify-center focus:outline-none shadow-sm group">
+            <i class="fas fa-chevron-left group-hover:-translate-x-0.5 transition-transform"></i>
+        </button>
+        
+        <div id="slide-indicator" class="text-sm font-extrabold text-enerDark w-16 text-center tracking-widest">
+            1 / 8
+        </div>
+
+        <button onclick="nextSlide()" class="w-10 h-10 rounded-full bg-enerLight hover:bg-enerDark text-white transition-all duration-300 flex items-center justify-center focus:outline-none shadow-lg shadow-enerLight/40 group">
+            <i class="fas fa-chevron-right group-hover:translate-x-0.5 transition-transform"></i>
+        </button>
+    </div>
+
+    <!-- Zonas de click invisibles en los bordes para pasar diapositivas de manera rápida -->
+    <div onclick="prevSlide()" class="fixed left-0 top-0 bottom-0 w-8 cursor-w-resize z-30 opacity-0 hover:opacity-10 bg-slate-400/20 transition-opacity hidden lg:block" title="Anterior diapositiva"></div>
+    <div onclick="nextSlide()" class="fixed right-0 top-0 bottom-0 w-8 cursor-e-resize z-30 opacity-0 hover:opacity-10 bg-slate-400/20 transition-opacity hidden lg:block" title="Siguiente diapositiva"></div>
+
+    <script>
+        // Arreglo e índices de diapositivas
+        let currentSlide = 1;
+        const totalSlides = 8;
+
+        function updateSlidePosition() {
+            // Elimina clases activas de todas
+            for (let i = 1; i <= totalSlides; i++) {
+                const el = document.getElementById(`slide-${i}`);
+                if (el) {
+                    el.classList.remove('active');
+                }
+            }
+
+            // Agrega active a la actual
+            const activeEl = document.getElementById(`slide-${currentSlide}`);
+            if (activeEl) {
+                activeEl.classList.add('active');
+                // Auto-scrollbar arriba para la nueva diapositiva
+                const contentBox = activeEl.querySelector('.slide-content');
+                if (contentBox) {
+                    contentBox.scrollTop = 0;
+                }
+            }
+
+            // Actualizar indicador
+            const indicator = document.getElementById('slide-indicator');
+            if (indicator) {
+                indicator.innerText = `${currentSlide} / ${totalSlides}`;
+            }
+        }
+
+        function nextSlide() {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+            } else {
+                currentSlide = 1; // Volver al inicio si llega al final
+            }
+            updateSlidePosition();
+        }
+
+        function prevSlide() {
+            if (currentSlide > 1) {
+                currentSlide--;
+            } else {
+                currentSlide = totalSlides; // Volver al final si retrocede desde el inicio
+            }
+            updateSlidePosition();
+        }
+
+        // Eventos de teclado (flechas y espacio)
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'Spacebar') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                prevSlide();
+            }
+        });
+
+        // Soporte de gestos táctiles sencillos (Swipe)
+        let touchstartX = 0;
+        let touchendX = 0;
+        
+        const sliderContainer = document.body;
+        
+        sliderContainer.addEventListener('touchstart', e => {
+            touchstartX = e.changedTouches[0].screenX;
+        }, {passive: true});
+        
+        sliderContainer.addEventListener('touchend', e => {
+            touchendX = e.changedTouches[0].screenX;
+            handleGesture();
+        }, {passive: true});
+        
+        function handleGesture() {
+            const threshold = 50; // Desplazamiento mínimo en píxeles
+            if (touchendX < touchstartX - threshold) {
+                nextSlide();
+            }
+            if (touchendX > touchstartX + threshold) {
+                prevSlide();
+            }
+        }
+
+        // Inicio por defecto en ventana cargada
+        window.onload = function() {
+            updateSlidePosition();
+        }
+    </script>
+</body>
+</html>
